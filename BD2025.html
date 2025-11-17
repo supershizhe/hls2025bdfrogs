@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>上锁的小青蛙日记本</title>
+  <style>
+    body {
+      text-align: center;   /* 让整个页面内容居中 */
+      font-size: 18px;
+    }
+    #result {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 第一行：passcode + 输入框 -->
+  <div>
+    <label for="passcodeInput">口令(17字符)：</label>
+    <input type="text" id="passcodeInput" />
+  </div>
+
+  <!-- 第二行：按钮 -->
+  <div style="margin-top: 10px;">
+    <button id="confirmBtn">打开日记本</button>
+  </div>
+
+  <!-- 第三行：输出结果 -->
+  <p id="result"></p>
+
+  <script>
+    function checkPasscode() {
+      const input = document.getElementById("passcodeInput").value.trim();
+      const result = document.getElementById("result");
+
+      if (input.toLowerCase() === "sjmlmqbgzyhnfspc_") {
+        result.textContent = "【小青蛙们的日记】 我们把宝箱的钥匙交给了A管家保管。要想知道钥匙在哪里，只能去问她了。 A管家真的好能干！平时又能帮我们开关灯，又能告诉我们现在几点了呢！";
+      } else {
+        result.textContent = "口令错误";
+      }
+    }
+
+    document.getElementById("confirmBtn").addEventListener("click", checkPasscode);
+  </script>
+
+</body>
+</html>
